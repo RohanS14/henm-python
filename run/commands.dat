@@ -1,0 +1,9 @@
+perl fluc-match-str-pdb.pl ../structure_ave.pdb ../traj_sup.pdb ../ba.dat bondfile flucfile 200 1
+
+source ~/your_gromacs_dir/bin/GMXRC.bash
+
+perl fluc-match-8f.pl bondfile flucfile 40 10000 0
+
+perl fix_enmitp.pl
+
+rm enm.itp, cp temp.itp enm.itp, rm temp.itp
