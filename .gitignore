@@ -9,6 +9,7 @@ run-pl/*
 !run-pl/enm_lammps.itp
 !run-pl/fluc-match-str-pdb.pl
 !run-pl/fluc-match-8f.pl
+!run-pl/commands.dat
 
 # Ignore all files in run-py except the specified ones
 run-py/*
@@ -21,6 +22,7 @@ run-py/*
 !run-py/enm_lammps.itp
 !run-py/fluc-match-str-pdb.py
 !run-py/fluc-match-8f.py
+!run-py/commands.dat
 
 # Ignore temporary or intermediate files
 *.log

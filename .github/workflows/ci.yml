@@ -25,14 +25,13 @@ jobs:
     # Create and activate the conda environment
     - name: Create conda environment
       run: |
-        conda create -n "ci-env" python=3.12.6
-        conda activate ci-env
+        conda create -n "ci-env" python=3.12.6 gromacs pytest -c conda-forge
       shell: bash -l {0}
     
-    # Install GROMACS in the conda environment
-    - name: Install GROMACS
-      run: conda install -c conda-forge gromacs
-      shell: bash -l {0}
+    # # Install GROMACS in the conda environment
+    # - name: Install GROMACS
+    #   run: conda install -c conda-forge gromacs
+    #   shell: bash -l {0}
 
     # Run GROMACS simulations in the conda environment
     - name: Run GROMACS simulations
