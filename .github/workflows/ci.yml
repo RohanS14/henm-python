@@ -25,8 +25,8 @@ jobs:
     # Create and activate the conda environment
     - name: Create conda environment
       run: |
-        conda env create -f environment.yml  # Assuming you have an environment.yml in your repo
-        conda activate mdsims                # Replace with your environment name
+        conda create -n "ci-env" python=3.12.6
+        conda activate ci-env
       shell: bash -l {0}
     
     # Install GROMACS in the conda environment
@@ -37,7 +37,7 @@ jobs:
     # Run GROMACS simulations in the conda environment
     - name: Run GROMACS simulations
       run: |
-        conda activate my_env
+        conda activate ci-env
         cd run-pl
         bash commands.dat
         cd ../run-py
@@ -47,6 +47,6 @@ jobs:
     # Run tests
     - name: Run comparison tests
       run: |
-        conda activate my_env
+        conda activate ci-env
         pytest tests/
       shell: bash -l {0}
