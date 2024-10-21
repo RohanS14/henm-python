@@ -9,9 +9,6 @@ while(<IN>){
 }
 close(IN);
 	
-
-
-
 open(IN, "enm.itp") || die "could not open top file\n";
 open(OUT, ">enm_lammps.itp");
 $write_flag = -1;
