@@ -1,4 +1,4 @@
-name: GROMACS CI with Conda
+name: build
 
 on:
   push:
