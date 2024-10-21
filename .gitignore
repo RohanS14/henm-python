@@ -1,0 +1,49 @@
+# Ignore all files in run-pl except the specified ones
+run-pl/*
+!run-pl/bondfile
+!run-pl/flucfile
+!run-pl/cg1.xyz
+!run-pl/enm.itp
+!run-pl/cgk.dat
+!run-pl/fix_enmitp.pl
+!run-pl/enm_lammps.itp
+!run-pl/fluc-match-str-pdb.pl
+!run-pl/fluc-match-8f.pl
+
+# Ignore all files in run-py except the specified ones
+run-py/*
+!run-py/bondfile
+!run-py/flucfile
+!run-py/cg1.xyz
+!run-py/enm.itp
+!run-py/cgk.dat
+!run-py/fix_enmitp.py
+!run-py/enm_lammps.itp
+!run-py/fluc-match-str-pdb.py
+!run-py/fluc-match-8f.py
+
+# Ignore temporary or intermediate files
+*.log
+*.mdp
+*.edr
+*.trr
+*.tpr
+*.dat
+*.gro
+*.top
+*.in
+*.mdout
+
+# Ignore compiled files
+*.o
+*.out
+*.so
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore hidden files and folders
+.DS_Store
+*.swp

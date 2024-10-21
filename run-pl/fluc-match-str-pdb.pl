@@ -4,7 +4,7 @@
 # Written by Ed Lyman and Andrea Grafmueller, 2007-2011.
 # This version is cleaned up by AVS
 
-$path_to_amino_acid_masses = "../exe-files";
+$path_to_amino_acid_masses = "../input-files";
 
 $numargs = @ARGV;
 if ($numargs != 7 )

@@ -13,7 +13,7 @@ close(IN);
 
 
 open(IN, "enm.itp") || die "could not open top file\n";
-open(OUT, ">temp.itp");
+open(OUT, ">enm_lammps.itp");
 $write_flag = -1;
 $ibond=0;
 
@@ -31,7 +31,5 @@ while(<IN>){
 close(IN);
 close(OUT);
 
-#rename ("temp.itp" , "enm.itp");
-#rename ("cgk_temp.dat" , "cgk.dat");	
 
 
