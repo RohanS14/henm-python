@@ -1,0 +1,52 @@
+name: GROMACS CI with Conda
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    # Install Miniconda
+    - name: Install Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        python-version: 3.12.6
+
+    # Create and activate the conda environment
+    - name: Create conda environment
+      run: |
+        conda env create -f environment.yml  # Assuming you have an environment.yml in your repo
+        conda activate mdsims                # Replace with your environment name
+      shell: bash -l {0}
+    
+    # Install GROMACS in the conda environment
+    - name: Install GROMACS
+      run: conda install -c conda-forge gromacs
+      shell: bash -l {0}
+
+    # Run GROMACS simulations in the conda environment
+    - name: Run GROMACS simulations
+      run: |
+        conda activate my_env
+        cd run-pl
+        bash commands.dat
+        cd ../run-py
+        bash commands.dat
+      shell: bash -l {0}
+
+    # Run tests
+    - name: Run comparison tests
+      run: |
+        conda activate my_env
+        pytest tests/
+      shell: bash -l {0}
