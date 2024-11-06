@@ -4,5 +4,8 @@ first run pdbMODELS.sh on original pdb file from vmd, then run theseus
 2. source make_henm_trj.tcl
    - replace BB with CA
 3. cp pfpatch_000000001669_rasraf_new.pdb trj_fromvmd.pdb  
+
+cp pfpatch_000000001669_rasraf_new_from_unaligned.pdb trj_fromvmd.pdb  
+
 3. ./pdbMODELS.sh trj_fromvmd.pdb
 4. theseus_universal or theseus_x86/theseus trj_fromvmd.pdb
