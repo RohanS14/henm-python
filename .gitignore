@@ -26,8 +26,8 @@ run-py/*
 !run-py/commands.dat
 
 # Ignore temporary or intermediate files
-!step4-theseus/protein_initial_unaligned.gro
-!step4-theseus/protein_bb_unaligned_pbc_fixed.trr
+!run-align/protein_initial_unaligned.gro
+!run-align/protein_bb_unaligned_pbc_fixed.trr
 *.log
 *.mdp
 *.edr
