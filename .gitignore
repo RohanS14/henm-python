@@ -1,4 +1,5 @@
 # Ignore all files in run-pl except the specified ones
+step4-theseus/theseus_x86/examples
 run-pl/*
 !run-pl/bondfile
 !run-pl/flucfile
@@ -25,6 +26,8 @@ run-py/*
 !run-py/commands.dat
 
 # Ignore temporary or intermediate files
+!input-files/protein_initial_unaligned.gro
+!input-files/protein_bb_unaligned_pbc_fixed.trr
 *.log
 *.mdp
 *.edr
@@ -35,6 +38,8 @@ run-py/*
 *.top
 *.in
 *.mdout
+*.lock
+*.npz
 
 # Ignore compiled files
 *.o
