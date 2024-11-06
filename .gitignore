@@ -38,6 +38,8 @@ run-py/*
 *.top
 *.in
 *.mdout
+*.lock
+*.npz
 
 # Ignore compiled files
 *.o

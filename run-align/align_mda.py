@@ -3,12 +3,12 @@ import MDAnalysis.transformations as trans
 from MDAnalysis.transformations.positionaveraging import PositionAverager
 
 # Load in the reference structure
-ref_structure = "protein_initial_unaligned.gro"
+ref_structure = "../input-files/protein_initial_unaligned.gro"
 ref = mda.Universe(ref_structure)
 atoms_ref_kras_bb = ref.select_atoms("name BB")
 
 # Load in the trajectory
-traj_file = "protein_bb_unaligned_pbc_fixed.trr"
+traj_file = "../input-files/protein_bb_unaligned_pbc_fixed.trr"
 mobile = mda.Universe(ref_structure, traj_file, in_memory=True)
 atoms_mobile_kras_bb = mobile.select_atoms("name BB")
 

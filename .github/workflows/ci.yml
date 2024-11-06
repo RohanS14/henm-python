@@ -32,7 +32,9 @@ jobs:
     - name: Run GROMACS simulations
       run: |
         conda activate ci-env
-        cd run-pl
+        cd run-align
+        python3 align_mda.py
+        cd ../run-pl
         bash commands.dat
         cd ../run-py
         bash commands.dat
