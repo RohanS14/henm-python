@@ -4,6 +4,8 @@ run-pl/*
 !run-pl/bondfile
 !run-pl/flucfile
 !run-pl/cg1.xyz
+!run-pl/cgk.dat
+!run-pl/mass.dat
 !run-pl/enm.itp
 !run-pl/cgk.dat
 !run-pl/fix_enmitp.pl
@@ -17,6 +19,8 @@ run-py/*
 !run-py/bondfile
 !run-py/flucfile
 !run-py/cg1.xyz
+!run-py/cgk.dat
+!run-py/mass.dat
 !run-py/enm.itp
 !run-py/cgk.dat
 !run-py/fix_enmitp.py
