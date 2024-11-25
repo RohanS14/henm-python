@@ -6,4 +6,7 @@ echo "Aligned trajectories, running hENM refinement"
 cd ../run-py
 bash commands.dat
 
+cd ../run-pl
+bash commands.dat
+
 echo "Done"
