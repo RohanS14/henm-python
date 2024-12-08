@@ -171,7 +171,8 @@ while($converge_flag < 0 && $iter < $max_iter){
 
 	print "running gromacs for energy minimization\n";
 	system ("gmx grompp -f steep.mdp -p enm -c enm >& gr.log");
-	system ("gmx mdrun -nt 1 >& md.log"); 
+	my $threads = $ENV{"OMP_NUM_THREADS"} // "8"; 
+	system ("gmx mdrun -ntmpi 1 -ntomp $threads >& md.log");
 	
 	#write xyz structure file
 	open(GRO, ">cg.xyz");
