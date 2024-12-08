@@ -143,7 +143,6 @@ with open("ffcharmm27.itp", "w") as grxff:
 # call the program for preparation of some gromacs input files
 subprocess.call(f"{exe_path}/mkgromax -imw mass.dat -ipr gro.in -iat cg.xyz -ibo {kinitialfile} -opr enm.itp -otp enm.top -ocr enm.gro -oat enm.atp", shell=True)
 
-
 # prepare the input file for hetero-enm
 with open("heteroenm.in", "w") as henin:
     henin.write("#Control parameters for hetero-enm\n")
@@ -182,7 +181,7 @@ while converge_flag < 0 and iter <= max_iter:
                     GRO.write(f"{parts[1]:>4} {float(parts[3]) * 10:10.5f} {float(parts[4]) * 10:10.5f} {float(parts[5]) * 10:10.5f}\n")
 
     # Remove GROMACS backup and rename confout.gro
-    os.rename("confout.gro", "enm.gro")
+    subprocess.call("cp confout.gro enm.gro", shell=True)
     backfiles = glob.glob("#*")
     for f in backfiles:
         os.remove(f)
