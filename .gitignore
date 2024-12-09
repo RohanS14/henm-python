@@ -28,6 +28,8 @@ run-py/*
 !run-py/fluc-match-str-pdb.py
 !run-py/fluc-match-8f.py
 !run-py/commands.dat
+!lammps-input/lammpsbondcoeff.dat
+!lammps-input/lammpsdata.dat
 
 # Ignore temporary or intermediate files
 !input-files/protein_initial_unaligned.gro
