@@ -190,7 +190,7 @@ while($converge_flag < 0 && $iter < $max_iter){
         close(GRO);
 
 	#remove gromacs backup and rename confout.gro
-	rename ("confout.gro" , "enm.gro");
+	system("cp confout.gro enm.gro");
 	@backfiles=glob("\#*");
 	unlink @backfiles;
 	

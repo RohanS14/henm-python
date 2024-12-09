@@ -1,4 +1,4 @@
-perl fluc-match-str-pdb.pl ../input-files/mda_structure_ave.pdb ../input-files/mda_traj_sup.pdb ../input-files/ba.dat bondfile flucfile 200 1
+perl fluc-match-str-pdb.pl ../input-files/structure_ave.pdb ../input-files/traj_sup.pdb ../input-files/ba.dat bondfile flucfile 200 1
 
 perl fluc-match-8f.pl bondfile flucfile 40 10000 0
 
