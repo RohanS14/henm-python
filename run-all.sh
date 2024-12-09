@@ -1,3 +1,5 @@
+echo "Starting job"
+
 source ~/.mummi/config.mummi.sh
 
 env | grep MUMMI
@@ -36,6 +38,9 @@ echo "Done"
 
 echo "Testing..."
 
+cd ..
 pytest .
+
+deactivate
 
 echo "Finished"
