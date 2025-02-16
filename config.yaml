@@ -1,0 +1,13 @@
+
+
+
+
+structure: 
+  short: ../input-files/protein_initial_unaligned.gro
+  long: ../long-input/lipids-water-eq4.gro
+
+trajectory: 
+  short: ../input-files/protein_bb_unaligned_pbc_fixed.trr
+  long: ../long-input/pfpatch_000000846170.xtc
+  # - traj.xtc
+  # - traj.ttr

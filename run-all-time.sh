@@ -4,7 +4,7 @@ source ~/.mummi/config.mummi.sh
 
 env | grep MUMMI
 
-source /usr/WS1/mummiusr/mummi-spack-temp/spack/0.21/share/spack/setup-env.sh
+source /usr/WS1/mummiusr/mummi-spack/spack/0.21/share/spack/setup-env.sh
 
 source $MUMMI_APP/setup/setup.env.sh
 
@@ -20,7 +20,16 @@ export OMP_NUM_THREADS=8
 echo "Aligning trajectories..." >> timing.txt
 
 cd run-align
-(time python3 align_mda.py > mda.log 2>&1 ) 2>> ../timing.txt
+eval $(python parse_config.py "$CONFIG_FILE")
+# Default to "short" unless specified
+VERSION=${1:-short}
+STRUCT_FILE=$(yq e ".input.structure.$VERSION" $CONFIG_FILE)
+TRAJ_FILE=$(yq e ".input.trajectory.$VERSION" $CONFIG_FILE)
+
+echo "Structure file: $STRUCT_FILE"
+echo "Trajectory: $TRAJ_FILE"
+
+(time python3 align_mda.py $STRUCT_FILE $TRAJ_FILE > mda.log 2>&1 ) 2>> ../timing.txt
 echo "" >> ../timing.txt
 
 echo "Aligned trajectories, now running hENM refinement"
