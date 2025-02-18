@@ -1,7 +1,3 @@
-cDir="/p/gpfs1/ipe1"
-
-cd $cDir
-
 function nk_jobid {
 
     output=$($*)
