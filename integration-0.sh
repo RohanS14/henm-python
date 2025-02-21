@@ -4,10 +4,19 @@
 ##########################
 
 # TODO: change per user
-cDir="/p/gpfs1/ipe1"
+cDir="/p/gpfs1/ipe1/integration"
 cd $cDir
 
-bash run_four_gmx_jobs.sh
+DIR="gmx-int"
+if [ ! -d "$DIR" ]; then
+    mkdir -p "$DIR"
+    echo "Directory '$DIR' created."
+else
+    echo "Directory '$DIR' already exists."
+fi
+
+cd $DIR
+bash ../run_four_gmx_jobs.sh
 
 # this makes x1 node job (running x4 simulations) runs for 12h and x3 chained dependent jobs to start after the previous finishes (note gmx mdrun -cpi flag makes gromacs restart from last checkpoint file).
 
@@ -15,14 +24,34 @@ bash run_four_gmx_jobs.sh
 ##### (: Run hENM :) #####
 ##########################
 
+DIR="henm-int"
+if [ ! -d "$DIR" ]; then
+    mkdir -p "$DIR"
+    echo "Directory '$DIR' created."
+else
+    echo "Directory '$DIR' already exists."
+fi
+
+cd $DIR
 # consider what input/output and location
-bash run-all.sh 
+bash ../run-henm.sh
 
 ##########################
 ##### Run LAMMPS :) ######
 ##########################
 
-mkdir test-lammps-integration && cd test-lammps-integration
+DIR="lammps-int"
+if [ ! -d "$DIR" ]; then
+    mkdir -p "$DIR"
+    echo "Directory '$DIR' created."
+else
+    echo "Directory '$DIR' already exists."
+fi
+
+# copy henm output to new folder to use instead of mummi-resources/ucg/*
+cp lammps-input/lammps* lammps-int
+cp $MUMMI_RESOURCES/ucg/lammps.in
+cd $DIR
 
 # source spack & load lammps
 source /usr/workspace/mummiusr/mummi-spack/spack/0.19/share/spack/setup-env.sh
@@ -32,7 +61,7 @@ command -v lmp
 # source mummi
 source ~/.mummi/config.mummi.sh
 env | grep MUMMI
-cp $MUMMI_RESOURCES/ucg/* .
+# cp lammps-int/* .
 
 # create and run job
 lalloc 2 -W 30
